@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="jquery-formValidation.css" type="text/css" />
+    <script src="./lib/jquery-3.6.0.js"></script>
+
+</head>
+
+<body>
+    <form id="form1" action="/my-handling-form-page" method="post">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name">
+            </li>
+            <li>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_email">
+            </li>
+            <li>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </li>
+            <li class="button">
+                <button id="btnValidate" type="submit">Submit</button>
+
+            </li>
+        </ul>
+    </form>
+
+    <script>
+        $("#btnValidate").click(function (event) {
+            Validation();
+            event.preventDefault();
+        });
+        let ArrayErrores = [];
+        function Validation() {
+            $("#form1 input, #form1 textarea").each(function () {
+                console.log($(this).val());
+                if ($(this).val() == "") {
+                    alert("Message Sent");
+                } else {
+                    alert("Invalid Information.");
+                }
+            });
+
+            /*let name = $("#name").val();
+            let mail = $("#mail").val();
+            let msg = $("msg").val();
+            console.log(name);
+            if(name != "" && mail != "" && msg != ""){
+                alert("Message Sent");
+            }else{
+                alert("Invalid Information.");
+            }*/
+        }
+
+        function addingErrors(){
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>
